@@ -43,6 +43,21 @@ panama_run_20160131_clean <- panama_run_20160131[["tracks"]][[1]][["Running"]] %
          event = "Run",
          date = ymd(str_sub(time, start=1,end=10)),
          hrminsec = ymd_hms(paste(date,str_sub(time, start=12,end=19))))
+```
+
+```{r}
+write_csv(panama_swim_20160131_clean,
+          "data/panama_swim_20160131.csv")
+write_csv(panama_bike_20160131_clean,
+          "data/panama_bike_20160131.csv")
+write_csv(panama_run_20160131_clean,
+          "data/panama_run_20160131.csv")
+
+```
+
+
+
+```{r}
 panana_20160131 <- panama_swim_20160131_clean %>% 
   bind_rows(panama_bike_20160131_clean,
             panama_run_20160131_clean,
